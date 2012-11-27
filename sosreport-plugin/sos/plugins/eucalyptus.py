@@ -52,5 +52,4 @@ class eucalyptus(sos.plugintools.PluginBase):
                  self.collectExtOutput(cmd, timeout = 120)
         except KeyError:
                 print "Eucalyptus Credentials not in environment, skipping euca commands."
-                sys.exit(1)
         return
