@@ -28,6 +28,7 @@ class eucalyptus(sos.plugintools.PluginBase):
     def setup(self):
         # Eucalyptus logs
         self.addCopySpec("/etc/eucalyptus/")
+        self.addCopySpec("/etc/eucalyptus-console/")
         self.addCopySpec("/var/log/eucalyptus/")
 	# Generic Eucalyptus Networking (not included in other plugins)
         self.collectExtOutput("/sbin/arp -a")
