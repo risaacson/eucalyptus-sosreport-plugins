@@ -1,9 +1,10 @@
-doctor-euca
-===========
+eucalyptus-sosreport-plugins
+============================
 
-Doctor Euca is the name for a set of tools to report on the health of a Eucalyptus Cloud.
+eucalyptus-sosreport-plugins was formally a part of the doctor-euca project(https://github.com/eucalyptus/doctor-euca).
 
-The requirements are currently being worked on, checkout the wiki for more info:
-https://github.com/eucalyptus/doctor-euca/wiki/Requirements
+This project contains plugins for sosreport that focus on the collection needs of Eucalyptus Clouds.
 
-You may also be interested in Nurse Euca (https://github.com/eucalyptus/nurse-euca), a set of pre-installtion tools to check a new Eucalyptus environment.
+These plugins are compatable with recent versions of sosreport. While attempts at getting it into the distribution repositories has stalled we will work towards hosting pre-built packages on the Eucalyptus download servers.
+
+The original work for the project was done by Tom Ellis.
