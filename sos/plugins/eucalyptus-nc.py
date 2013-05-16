@@ -26,4 +26,7 @@ class eucalyptus(sos.plugintools.PluginBase):
         return False
 
     def setup(self):
-        # Eucalyptus logs
+        # List the running VMs
+        self.collectExtOutput('virsh list', timeout = 120)
+        # List all loopback devices
+        self.collectExtOutput('losetup -a', timeout = 120)
