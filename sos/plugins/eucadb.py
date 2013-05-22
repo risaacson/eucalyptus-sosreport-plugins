@@ -1,4 +1,4 @@
-## Copyright (C) 2012-2013 Eucalyptus Systems, Inc., Tom Ellis <tellis@eucalyptus.com>
+## Copyright (C) 2012-2013 Eucalyptus Systems, Inc., Richard Isaacson <richard@eucalyptus.com>
 
 ### This program is free software; you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by
@@ -14,17 +14,12 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-import sos.plugintools
-import os, sys
+from sos.plugins import Plugin, RedHatPlugin
+import os
 
-class eucalyptus_postgresql(sos.plugintools.PluginBase):
-    """Eucalyptus Cloud related information
-    """
-    def checkenabled(self):
-        if self.isInstalled("eucalyptus-postgresql"):
-            return True
-        return False
+class eucadb(Plugin, RedHatPlugin):
+    """Eucalyptus Cloud - PostgreSQL"""
 
     def setup(self):
         if os.path.isfile('/usr/bin/pg_dumpall'):
-            self.collectExtOutput("pg_dumpall -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root", timeout = 600)
+            self.add_cmd_output("pg_dumpall -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root", timeout = 600)
