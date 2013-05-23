@@ -21,4 +21,4 @@ class eucacore(Plugin, RedHatPlugin):
     """Eucalyptus Cloud - Core"""
 
     def setup(self):
-        self.addCopySpecs(["/etc/eucalyptus", "/var/log/eucalyptus"])
+        self.add_copy_specs(["/etc/eucalyptus", "/var/log/eucalyptus"])
