@@ -21,5 +21,16 @@ class eucadb(Plugin, RedHatPlugin):
     """Eucalyptus Cloud - PostgreSQL"""
 
     def setup(self):
-        if os.path.isfile('/usr/bin/pg_dumpall'):
-            self.add_cmd_output("pg_dumpall -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root", timeout = 600)
+#        if os.path.isfile('/usr/bin/pg_dumpall'):
+        if os.path.isfile('/usr/bin/pg_dump'):
+#            self.add_cmd_output("pg_dumpall -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_auth", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_cloud", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_config", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_dns", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_faults", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_general", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_records", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root --exclude-table=reporting_instance_usage_events eucalyptus_reporting", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_storage", timeout = 600)
+            self.add_cmd_output("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_walrus", timeout = 600)
