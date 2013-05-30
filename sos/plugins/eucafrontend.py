@@ -20,9 +20,11 @@ import os
 class eucafrontend(Plugin, RedHatPlugin):
     """Eucalyptus Cloud - Frontend"""
 
+    packages = ('euca2ools',)
+
     def setup(self):
-        self.add_cmd_output("euca-describe-services")
-        self.add_cmd_output("euca-describe-availability-zones verbose")
-        self.add_cmd_output("euca-describe-instances verbose")
-        self.add_cmd_output("euca-describe-addresses")
-        self.add_cmd_output("euca-describe-groups")
+        self.add_cmd_output("/usr/bin/euca-describe-services")
+        self.add_cmd_output("/usr/bin/euca-describe-availability-zones verbose")
+        self.add_cmd_output("/usr/bin/euca-describe-instances verbose")
+        self.add_cmd_output("/usr/bin/euca-describe-addresses")
+        self.add_cmd_output("/usr/bin/euca-describe-groups")
