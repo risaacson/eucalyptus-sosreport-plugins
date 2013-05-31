@@ -9,7 +9,7 @@ Group: Applications/System
 License: GPLv2+
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
-Url: http://github.com/eucalyptus/eucalyptus-sosreport
+Url: http://github.com/risaacson/eucalyptus-sosreport-plugins
 BuildRequires: python-devel
 Requires: sos
 
@@ -17,7 +17,7 @@ Requires: sos
 Eucalyptus is open source software for building AWS-compatible
 private and hybrid clouds. Sosreport is a set of tools that
 gathers information about system hardware and configuration.
-This package contains a plugin for sosreport to gather
+This package contains plugins for sosreport to gather
 information on Eucalyptus clouds.
 
 %prep
@@ -27,7 +27,7 @@ information on Eucalyptus clouds.
 
 %install
 install -m 0755 -d $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
-install -m 0755 sos/plugins/eucalyptus.py $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
+install -m 0755 sos/plugins/*.py $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -37,5 +37,3 @@ rm -rf ${RPM_BUILD_ROOT}
 %{python_sitelib}/*
 
 %changelog
-* Mon Nov 05 2012 Tom Ellis <tom dot ellis at eucalyptus dot com> = 0.1-0
-- Initial Eucalyptus plugin packaging for EL6
