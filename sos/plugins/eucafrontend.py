@@ -23,7 +23,7 @@ class eucafrontend(Plugin, RedHatPlugin):
     packages = ('euca2ools',)
 
     def setup(self):
-        self.add_cmd_output("/usr/bin/euca-describe-services")
+        self.add_cmd_output("/usr/bin/euca-describe-services --all -E")
         self.add_cmd_output("/usr/bin/euca-describe-availability-zones verbose")
         self.add_cmd_output("/usr/bin/euca-describe-instances verbose")
         self.add_cmd_output("/usr/bin/euca-describe-addresses")
