@@ -1,7 +1,7 @@
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
 Summary: A plugin to sosreport to collect data about Eucalyptus clouds
-Name: eucalyptus-sos-plugin
+Name: eucalyptus-sos-plugins
 Version: 0.1
 Release: 0%{?dist}
 Source0: %{name}-%{version}.tar.gz
@@ -27,7 +27,7 @@ information on Eucalyptus clouds.
 
 %install
 install -m 0755 -d $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
-install -m 0755 sos/plugins/*.py $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
+install -m 0644 sos/plugins/*.py $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
