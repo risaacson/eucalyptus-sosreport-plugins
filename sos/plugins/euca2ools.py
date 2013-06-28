@@ -14,13 +14,17 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-from sos.plugins import Plugin, RedHatPlugin
+import sos.plugintools
 import os
 
-class euca2ools(Plugin, RedHatPlugin):
-    """Eucalyptus Cloud - Console"""
-
-    packages = ('euca2ools',)
+class euca2ools(sos.plugintools.PluginBase):
+    """Eucalyptus Cloud - euca2ools
+    """
+    def checkenabled(self):
+        if self.isInstalled("euca2ools"):
+            return True
+        return False
 
     def setup(self):
-        self.add_copy_specs(["/etc/euca2ools"})
+        self.addCopySpec("/etc/euca2ools")
+        return
