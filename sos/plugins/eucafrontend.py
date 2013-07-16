@@ -14,17 +14,22 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-from sos.plugins import Plugin, RedHatPlugin
+import sos.plugintools
 import os
 
-class eucafrontend(Plugin, RedHatPlugin):
-    """Eucalyptus Cloud - Frontend"""
-
-    packages = ('euca2ools',)
+class eucafrontend(sos.plugintools.PluginBase):
+    """Eucalyptus Cloud - Frontend
+    """
+    def checkenabled(self):
+        if self.isInstalled("euca2ools"):
+            return True
+        return False
 
     def setup(self):
-        self.add_cmd_output("/usr/bin/euca-describe-services --all -E")
-        self.add_cmd_output("/usr/bin/euca-describe-availability-zones verbose")
-        self.add_cmd_output("/usr/bin/euca-describe-instances verbose")
-        self.add_cmd_output("/usr/bin/euca-describe-addresses")
-        self.add_cmd_output("/usr/bin/euca-describe-groups")
+        self.addCopySpec("/etc/euca2ools")
+        self.collectExtOutput("/usr/bin/euca-describe-services --all -E")
+        self.collectExtOutput("/usr/bin/euca-describe-availability-zones verbose")
+        self.collectExtOutput("/usr/bin/euca-describe-instances verbose")
+        self.collectExtOutput("/usr/bin/euca-describe-addresses")
+        self.collectExtOutput("/usr/bin/euca-describe-groups")
+        return
