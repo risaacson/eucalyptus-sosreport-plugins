@@ -15,7 +15,7 @@ These plugins focus on these areas:
 
 You will want to make sure that when you execute sosreport that you have already sourced your eucarc file to get all of the correct output.
 
-The original work for the project was done by Tom Ellis(https://github.com/tomellis).
+The original work for the project was done by Tom Ellis(https://github.com/tomellis). The torch was picked up by Richard Isaacsn(https://github.com/risaacson) to drive and improve the project.
 
 Versioning
 ----------
