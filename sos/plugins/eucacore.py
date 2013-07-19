@@ -21,7 +21,12 @@ class eucacore(sos.plugintools.PluginBase):
     """Eucalyptus Cloud - Core
     """
 
+    def checkenabled(self):
+        if self.isInstalled("eucalyptus"):
+            return True
+        return False
+
     def setup(self):
         self.addCopySpec("/etc/eucalyptus")
-        self.addCopySpec("/var/log/eucalyptus")
+        self.addCopySpec("/var/log/eucalyptus/*")
         return
