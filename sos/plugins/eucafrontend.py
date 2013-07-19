@@ -27,7 +27,7 @@ class eucafrontend(sos.plugintools.PluginBase):
 
     def setup(self):
         self.addCopySpec("/etc/euca2ools")
-        self.collectExtOutput("/usr/bin/euca-describe-services --all -E")
+        self.collectExtOutput("/usr/sbin/euca-describe-services --all -E")
         self.collectExtOutput("/usr/bin/euca-describe-availability-zones verbose")
         self.collectExtOutput("/usr/bin/euca-describe-instances verbose")
         self.collectExtOutput("/usr/bin/euca-describe-addresses")
