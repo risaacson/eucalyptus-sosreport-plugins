@@ -2,7 +2,7 @@
 
 Summary: A plugin to sosreport to collect data about Eucalyptus clouds
 Name: eucalyptus-sos-plugins
-Version: 0.1
+Version: 0.1.1
 Release: 0%{?dist}
 Source0: %{name}-%{version}.tar.gz
 Group: Applications/System
@@ -27,7 +27,7 @@ information on Eucalyptus clouds.
 
 %install
 install -m 0755 -d $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
-install -m 0644 sos/plugins/*.py $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
+install -m 0755 sos/plugins/*.py $RPM_BUILD_ROOT/%{python_sitelib}/sos/plugins
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}

@@ -14,11 +14,19 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-from sos.plugins import Plugin, RedHatPlugin
+import sos.plugintools
 import os
 
-class eucacore(Plugin, RedHatPlugin):
-    """Eucalyptus Cloud - Core"""
+class eucacore(sos.plugintools.PluginBase):
+    """Eucalyptus Cloud - Core
+    """
+
+    def checkenabled(self):
+        if self.isInstalled("eucalyptus"):
+            return True
+        return False
 
     def setup(self):
-        self.add_copy_specs(["/etc/eucalyptus", "/var/log/eucalyptus"])
+        self.addCopySpec("/etc/eucalyptus")
+        self.addCopySpec("/var/log/eucalyptus/*")
+        return

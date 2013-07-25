@@ -17,19 +17,14 @@
 import sos.plugintools
 import os
 
-class eucafrontend(sos.plugintools.PluginBase):
-    """Eucalyptus Cloud - Frontend
+class eucaconsole(sos.plugintools.PluginBase):
+    """Eucalyptus Cloud - Console
     """
     def checkenabled(self):
-        if self.isInstalled("euca2ools"):
+        if self.isInstalled("eucalyptus-console"):
             return True
         return False
 
     def setup(self):
-        self.addCopySpec("/etc/euca2ools")
-        self.collectExtOutput("/usr/sbin/euca-describe-services --all -E")
-        self.collectExtOutput("/usr/bin/euca-describe-availability-zones verbose")
-        self.collectExtOutput("/usr/bin/euca-describe-instances verbose")
-        self.collectExtOutput("/usr/bin/euca-describe-addresses")
-        self.collectExtOutput("/usr/bin/euca-describe-groups")
+        self.addCopySpec("/etc/eucalyptus-console")
         return
