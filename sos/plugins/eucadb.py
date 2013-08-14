@@ -22,15 +22,16 @@ class eucadb(sos.plugintools.PluginBase):
     """
 
     def setup(self):
-        if os.path.isfile('/usr/bin/pg_dump'):
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_auth", suggest_filename="eucalyptus_auth.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_cloud", suggest_filename="eucalyptus_cloud.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_config", suggest_filename="eucalyptus_config.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_dns", suggest_filename="eucalyptus_dns.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_faults", suggest_filename="eucalyptus_faults.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_general", suggest_filename="eucalyptus_general.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_records", suggest_filename="eucalyptus_records.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root --exclude-table=reporting_instance_usage_events eucalyptus_reporting", suggest_filename="eucalyptus_reporting.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_storage", suggest_filename="eucalyptus_storage.sql", timeout = 600)
-            self.collectExtOutput("pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_walrus", suggest_filename="eucalyptus_walrus.sql", timeout = 600)
+        if os.path.isfile('/usr/pgsql-9.1/bin/pg_dump'):
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_auth", suggest_filename="eucalyptus_auth.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_cloud", suggest_filename="eucalyptus_cloud.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_config", suggest_filename="eucalyptus_config.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_dns", suggest_filename="eucalyptus_dns.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root database_events", suggest_filename="database_events.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_faults", suggest_filename="eucalyptus_faults.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_general", suggest_filename="eucalyptus_general.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_records", suggest_filename="eucalyptus_records.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root --exclude-table=reporting_instance_usage_events eucalyptus_reporting", suggest_filename="eucalyptus_reporting.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_storage", suggest_filename="eucalyptus_storage.sql", timeout = 600)
+            self.collectExtOutput("/usr/pgsql-9.1/bin/pg_dump -c -o -h /var/lib/eucalyptus/db/data -p 8777 -U root eucalyptus_walrus", suggest_filename="eucalyptus_walrus.sql", timeout = 600)
         return
