@@ -14,11 +14,11 @@ These plugins focus on these areas:
 
 History:
 ========
-eucalyptus-sosreport-plugins was formally a part of (doctor-euca)[https://github.com/eucalyptus/doctor-euca "eucalyptus/doctor-euca"].
+eucalyptus-sosreport-plugins was formally a part of [doctor-euca](https://github.com/eucalyptus/doctor-euca "eucalyptus/doctor-euca").
 
 You will want to make sure that when you execute sosreport that you have already sourced your eucarc file to get all of the correct output.
 
-The original work for the project was done by Tom Ellis(https://github.com/tomellis). The torch was picked up by Richard Isaacsn(https://github.com/risaacson) to drive and improve the project.
+The original work for the project was done by [Tom Ellis](https://github.com/tomellis). The torch was picked up by [Richard Isaacson](https://github.com/risaacson) to drive and improve the project.
 
 Targeted Systems:
 =================
@@ -32,14 +32,14 @@ Package Installation:
 ---------------------
 Add the Eucalyptus Tools Repository. 
 
-```
+```shell
 cd /etc/yum.repos.d
 wget 'http://downloads.eucalyptus.com/software/tools/tools.repo'
 ```
 
 Install the eucalyptus-sos-tools package which will install the sos package if it is not already installed.
 
-```
+```shell
 yum install eucalyptus-sos-plugins
 ```
 
@@ -47,7 +47,7 @@ Manual Installation:
 --------------------
 To install eucalyptus-sosreport-plugins manually you will need to have git installed on the system along with sosreport compatible with r2.2.
 
-```
+```shell
 git clone https://github.com/eucalyptus/eucalyptus-sosreport-plugins.git
 cp eucalyptus-sosreport-plugins/sos/plugins/euca*.py /usr/lib/python2.6/site-packages/sos/plugins/euca*.py
 ```
@@ -58,19 +58,19 @@ Execution of sosreport is simple and straight forward. You will need to make sur
 
 At the very least we want to make sure to use the `–batch` option so that interactive questions are no asked.
 
-```
+```shell
 sosreport --batch
 ```
 
 Execution could take severl moments. If it seems to be running long and it is not stuck on the databse the system plugin could be stuck. To skip the system plugin execute the following command.
 
-```
+```shell
 sosreport --batch --skip-plugins=system
 ```
 
 After you have executed sosreport you should move the resulting archive out of /tmp as you risk imparing the system if /tmp is too full. If /tmp is limited you can create the archive in an alternate location by executing.
 
-```
+```shell
 sosreport --batch --tmp-dir SOMEDIRECTORY
 ```
 
@@ -91,30 +91,30 @@ You are invited to point out any problems that might have happened while running
 
 If you don't know exactly what eucalyptus plugin failed please run the following and attach the output.
 
-```
+```shell
 sosreport --batch --only-plugins eucacore,eucadb,eucafrontend,eucaconsole -vv
 ```
 
 If you can identify a signle plugin that is having problems run only that plugin and pull the output.
 
-```
+```shell
 sosreport --batch --only-plugins PLUGIN -vv
 ```
 
 It can also be helpful to avoid creating an archive. If you use the '–build' flag to leave the directory structure intact. sosreport will print a message about where the directory structure is located.
 
-```
+```shell
 sosreport --batch --build
 ```
 
 Code Repositories:
 ==================
-Official Repository: (eucalyptus/eucalyptus-sosreport-plugins)[https://github.com/eucalyptus/eucalyptus-sosreport-plugins]
-Original Repository: (eucalyptus/eucalyptus-sosreport-plugins)[https://github.com/risaacson/eucalyptus-sosreport-plugins]
+Official Repository: [eucalyptus/eucalyptus-sosreport-plugins](https://github.com/eucalyptus/eucalyptus-sosreport-plugins)
+Original Repository: [risaacson/eucalyptus-sosreport-plugins](https://github.com/risaacson/eucalyptus-sosreport-plugins)
 
 Issues/Improvement:
 ===================
-We are completely open and transparent with eucalyptus-sosreport-plugins as the source resides in a public repository on github. Any issues or requests for improvement should be placed on the github issues page: (eucalyptus-sosreport-plugins/issues)[https://github.com/eucalyptus/eucalyptus-sosreports/issues]
+We are completely open and transparent with eucalyptus-sosreport-plugins as the source resides in a public repository on github. Any issues or requests for improvement should be placed on the github issues page: [eucalyptus-sosreport-plugins/issues](https://github.com/eucalyptus/eucalyptus-sosreports/issues}
 
 Contributing Code:
 ------------------
