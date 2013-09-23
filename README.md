@@ -82,7 +82,9 @@ Currently sosreport's github is at version 3.0 of the software.
 Versioning:
 ===========
 r2.2 branch -> sosreport 2.2 (CentOS 6.4 uses this.)
+
 r2.3 branch -> sosreport 2.3 & 3.0(?) (This is the future.)
+
 master branch -> r2.2 branch
 
 Troubleshooting:
@@ -110,11 +112,12 @@ sosreport --batch --build
 Code Repositories:
 ==================
 Official Repository: [eucalyptus/eucalyptus-sosreport-plugins](https://github.com/eucalyptus/eucalyptus-sosreport-plugins)
+
 Original Repository: [risaacson/eucalyptus-sosreport-plugins](https://github.com/risaacson/eucalyptus-sosreport-plugins)
 
 Issues/Improvement:
 ===================
-We are completely open and transparent with eucalyptus-sosreport-plugins as the source resides in a public repository on github. Any issues or requests for improvement should be placed on the github issues page: [eucalyptus-sosreport-plugins/issues](https://github.com/eucalyptus/eucalyptus-sosreports/issues}
+We are completely open and transparent with eucalyptus-sosreport-plugins as the source resides in a public repository on github. Any issues or requests for improvement should be placed on the github issues page: [eucalyptus-sosreport-plugins/issues](https://github.com/eucalyptus/eucalyptus-sosreports/issues)
 
 Contributing Code:
 ------------------
