@@ -27,9 +27,29 @@ class eucafrontend(sos.plugintools.PluginBase):
 
     def setup(self):
         self.addCopySpec("/etc/euca2ools")
-        self.collectExtOutput("/usr/sbin/euca-describe-services --all -E")
-        self.collectExtOutput("/usr/bin/euca-describe-availability-zones verbose")
-        self.collectExtOutput("/usr/bin/euca-describe-instances verbose")
         self.collectExtOutput("/usr/bin/euca-describe-addresses")
+        self.collectExtOutput("/usr/sbin/euca-describe-arbitrators")
+        self.collectExtOutput("/usr/bin/euca-describe-availability-zones verbose")
+        self.collectExtOutput("/usr/sbin/euca-describe-clouds")
+        self.collectExtOutput("/usr/sbin/euca-describe-clusters")
+        self.collectExtOutput("/usr/sbin/euca-describe-components")
         self.collectExtOutput("/usr/bin/euca-describe-groups")
+        self.collectExtOutput("/usr/bin/euca-describe-images --all")
+        self.collectExtOutput("/usr/bin/euca-describe-instances verbose")
+        self.collectExtOutput("/usr/sbin/euca-describe-nodes")
+        self.collectExtOutput("/usr/sbin/euca-describe-properties")
+        self.collectExtOutput("/usr/bin/euca-describe-regions")
+        self.collectExtOutput("/usr/sbin/euca-describe-services --all -E")
+        self.collectExtOutput("/usr/bin/euca-describe-snapshots --all")
+        self.collectExtOutput("/usr/sbin/euca-describe-storage-controllers")
+        self.collectExtOutput("/usr/bin/euca-describe-tags")
+        self.collectExtOutput("/usr/sbin/euca-describe-vmware-brokers")
+        self.collectExtOutput("/usr/bin/euca-describe-volumes")
+        self.collectExtOutput("/usr/sbin/euca-describe-walruses")
+        self.collectExtOutput("/usr/bin/euca-version")
         return
+
+
+
+
+
